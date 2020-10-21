@@ -1,34 +1,24 @@
-import React, { Component } from 'react'
-import Star from './Star'
+import React, { Component } from "react"
 
-// const StarRating = ({starsSelected = 0, totalStars = 5, onRate = f => f}) =>
-//   <div className='star-rating'>
-//     {[...Array(totalStars)].map((n, i) =>
-//       <Star key={i}
-//         selected={i < starsSelected}
-//         onClick={() => onRate(i + 1)} />
-//     )}
-//     <p>{starsSelected} of {totalStars} stars</p>
-//   </div>
-
-// StarRating.propTypes = {
-//   starsSelected: PropTypes.number,
-//   totalStars: PropTypes.number,
-//   onRate: PropTypes.func
-// }
+import Star from "./Star"
 
 export default class StarRating extends Component {
-  render () {
+  render() {
     return (
-      <div className='star-rating'>
-        {[...Array(this.props.totalStars)].map((n, i) =>
-          <Star key={i}
-            selected={i < this.props.starsSelected} // TODO: EXPLAIN THIS.
-            onClick={() => this.props.onRate(i + 1)} />
-        )}
-        <p>{this.props.starsSelected} of {this.props.totalStars} stars</p>
+      <div className="star-rating">
+        {Array(5)
+          .fill()
+          .map((n, i) => (
+            <Star
+              key={i}
+              selected={i < this.props.rating}
+              onClick={() => this.props.onRate(i + 1)}
+            />
+          ))}
+        <p>
+          {this.props.rating} of {this.props.totalStars} stars
+        </p>
       </div>
-
     )
   }
 }

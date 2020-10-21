@@ -1,6 +1,8 @@
 @import "globals";
 
-html, body, div#react-container {
+html,
+body,
+div#root {
   min-height: 100%;
 }
 
@@ -9,7 +11,6 @@ h1 {
 }
 
 body {
-
   @include clear;
   @include fade-bg($light, $light-grey);
 
@@ -18,7 +19,6 @@ body {
     flex-direction: column;
     height: 100%;
   }
-
 }
 
 input {

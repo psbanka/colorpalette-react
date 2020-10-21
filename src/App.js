@@ -10,14 +10,16 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      colors: [],
+      colors: [
+        { id: "foo", title: "hello-kitty", color: "#fff999", rating: 0 },
+      ],
     }
-    this.addColor = this.addColor.bind(this)
+    this.onNewColor = this.onNewColor.bind(this)
     this.rateColor = this.rateColor.bind(this)
     this.removeColor = this.removeColor.bind(this)
   }
 
-  addColor(title, color) {
+  onNewColor(title, color) {
     this.setState((prevState) => ({
       colors: [
         ...prevState.colors,
@@ -51,11 +53,11 @@ class App extends Component {
   }
 
   render() {
-    const { addColor, rateColor, removeColor } = this
+    const { onNewColor, rateColor, removeColor } = this
     const { colors } = this.state
     return (
       <div className="app">
-        <AddColorForm onNewColor={addColor} />
+        <AddColorForm onNewColor={onNewColor} />
         <ColorList colors={colors} onRate={rateColor} onRemove={removeColor} />
       </div>
     )

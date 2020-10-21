@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-// import '../stylesheets/Star.scss'
+import "./stylesheets/Star.scss"
+
+import React, { Component } from "react"
 
 // const Star = ({ selected = false, onClick = f => f }) =>
 //   <div className={(selected) ? 'star selected' : 'star'}
@@ -11,10 +12,12 @@ import React, { Component } from 'react'
 // }
 
 export default class Star extends Component {
-  render () {
+  render() {
     return (
-      <div className={(this.props.selected) ? 'star selected' : 'star'}
-        onClick={this.props.onClick} />
+      <div
+        className={this.props.selected ? "star selected" : "star"}
+        onClick={this.props.onClick}
+      />
     )
   }
 }
