@@ -4,7 +4,20 @@ import React, { Component } from "react"
 
 import Color from "./Color"
 
-export default class ColorList extends Component {
+type ColorType = {
+  id: string
+  title: string
+  color: string
+  rating: number
+}
+
+type Props = {
+  colors: ColorType[]
+  onRate: (id: string, rating: number) => void
+  onRemove: (id: string) => void
+}
+
+export default class ColorList extends Component<Props, {}> {
   render() {
     return (
       <div className="color-list">

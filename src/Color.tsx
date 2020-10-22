@@ -4,7 +4,15 @@ import React, { Component } from "react"
 
 import StarRating from "./StarRating"
 
-export default class Color extends Component {
+type Props = {
+  color: string
+  onRate: (rating: number) => void
+  onRemove: () => void
+  rating: number
+  title: string
+}
+
+export default class Color extends Component<Props, {}> {
   render() {
     return (
       <section className="color">

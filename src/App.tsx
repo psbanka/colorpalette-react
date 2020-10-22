@@ -6,7 +6,18 @@ import AddColorForm from "./AddColorForm"
 import ColorList from "./ColorList"
 import { v4 } from "uuid"
 
-class App extends Component {
+type Color = {
+  id: string
+  title: string
+  color: string
+  rating: number
+}
+
+type AppState = {
+  colors: Color[]
+}
+
+class App extends Component<{}, AppState> {
   constructor(props) {
     super(props)
     this.state = {
