@@ -18,7 +18,7 @@ type AppState = {
 }
 
 class App extends Component<{}, AppState> {
-  constructor(props) {
+  constructor(props: any) {
     super(props)
     this.state = {
       colors: [
@@ -30,7 +30,7 @@ class App extends Component<{}, AppState> {
     this.removeColor = this.removeColor.bind(this)
   }
 
-  onNewColor(title, color) {
+  onNewColor(title: string, color: string) {
     this.setState((prevState) => ({
       colors: [
         ...prevState.colors,
@@ -44,7 +44,7 @@ class App extends Component<{}, AppState> {
     }))
   }
 
-  rateColor(id, rating) {
+  rateColor(id: string, rating: number) {
     this.setState((prevState) => ({
       colors: prevState.colors.map((color) =>
         color.id !== id
@@ -57,7 +57,7 @@ class App extends Component<{}, AppState> {
     }))
   }
 
-  removeColor(id) {
+  removeColor(id: string) {
     this.setState((prevState) => ({
       colors: prevState.colors.filter((color) => color.id !== id),
     }))

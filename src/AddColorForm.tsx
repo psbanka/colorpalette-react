@@ -1,6 +1,6 @@
 import "./stylesheets/AddColorForm.scss"
 
-import React, { Component } from "react"
+import React, { ChangeEvent, Component, FormEvent } from "react"
 
 type Props = {
   onNewColor: (title: string, color: string) => void
@@ -12,7 +12,7 @@ type State = {
 } 
 
 export default class AddColorForm extends Component<Props, State> {
-  constructor(props) {
+  constructor(props: Props) {
     super(props)
     this.submit = this.submit.bind(this)
     this.state = {
@@ -24,15 +24,15 @@ export default class AddColorForm extends Component<Props, State> {
     this.changeTitle = this.changeTitle.bind(this)
   }
 
-  changeTitle(event) {
-    this.setState({ title: event.target.value })
+  changeTitle(event: ChangeEvent<HTMLInputElement>) {
+    this.setState({ title: event?.target?.value })
   }
 
-  changeColor(event) {
+  changeColor(event: ChangeEvent<HTMLInputElement>) {
     this.setState({ color: event.target.value })
   }
 
-  submit(e) {
+  submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     this.props.onNewColor(this.state.title, this.state.color)
     this.setState({ title: "", color: "#000000" })
