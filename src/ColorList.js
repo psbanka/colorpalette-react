@@ -17,6 +17,7 @@ export default class ColorList extends Component {
               {...color}
               onRate={(rating) => this.props.onRate(color.id, rating)}
               onRemove={() => this.props.onRemove(color.id)}
+              onChange={(newColor) => this.props.onChange(color.id, newColor)}
             />
           ))
         )}

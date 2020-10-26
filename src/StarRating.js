@@ -15,7 +15,7 @@ export default class StarRating extends Component {
               onClick={() => this.props.onRate(i + 1)}
             />
           ))}
-        <p>
+        <p style={{ color: this.props.color }}>
           {this.props.rating} of {this.props.totalStars} stars
         </p>
       </div>
