@@ -1,4 +1,4 @@
-import "./stylesheets/AddColorForm.scss"
+import "./stylesheets/AddColorForm.css"
 
 import React, { Component } from "react"
 

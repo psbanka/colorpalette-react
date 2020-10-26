@@ -1,0 +1,39 @@
+:root {
+  --light: rgba(255, 255, 255, 1);
+  --light-grey: rgba(229, 229, 229, 1);
+  --darker-grey: rgba(199, 199, 199, 1);
+  --darkest-grey: rgba(129, 129, 129, 1);
+  --red: #900;
+  --font-heading: Verdana, sans-serif;
+  --break-sm: 700px;
+  --break-md: 1100px;
+  --break-lg: 1600px;
+  --break-xl: 2000px;
+}
+html,
+body,
+div#root {
+  min-height: 100%;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--light);
+  background: linear-gradient(
+    to bottom,
+    var(--light) 0%,
+    var(--light-grey) 100%
+  );
+}
+body div.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+input {
+  outline: none;
+}

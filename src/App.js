@@ -1,4 +1,4 @@
-import "./stylesheets/APP.scss"
+import "./stylesheets/APP.css"
 
 import React, { Component } from "react"
 

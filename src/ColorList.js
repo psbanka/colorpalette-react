@@ -1,4 +1,4 @@
-import "./stylesheets/ColorList.scss"
+import "./stylesheets/ColorList.css"
 
 import React, { Component } from "react"
 

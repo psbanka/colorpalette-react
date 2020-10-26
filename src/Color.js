@@ -1,4 +1,4 @@
-import "./stylesheets/Color.scss"
+import "./stylesheets/Color.css"
 
 import React, { Component } from "react"
 import { hexToChannels, lumFromChannels } from "luum"
@@ -22,7 +22,7 @@ export default class Color extends Component {
       <section className="color" style={{ backgroundColor: this.props.color }}>
         <h1 style={{ color: mainColor }}>{this.props.title}</h1>
         <button onClick={this.props.onRemove}>X</button>
-        <div class="color">
+        <div className="color">
           <p style={{ color: mainColor }}>value: {this.props.color}</p>
           <input
             onChange={(event) => this.changeColor(event)}
