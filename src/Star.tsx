@@ -2,7 +2,12 @@ import "./stylesheets/Star.css"
 
 import React, { Component } from "react"
 
-export default class Star extends Component {
+type Props = {
+  selected: boolean
+  onClick: () => void
+}
+
+export default class Star extends Component<Props, {}> {
   render() {
     return (
       <div
