@@ -5,7 +5,16 @@ import { hexToChannels, lumFromChannels } from "luum"
 
 import StarRating from "./StarRating"
 
-export default class Color extends Component {
+type Props = {
+  onRemove: () => void,
+  color: string,
+  rating: number,
+  title: string,
+  onRate: (rating: number) => void,
+  onChange: (color: string) => void
+}
+
+export default class Color extends Component<Props, {}> {
   computeMainColor(backgroundHexColor) {
     const channels = hexToChannels(backgroundHexColor)
     const luminosity = lumFromChannels(channels)

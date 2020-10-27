@@ -2,12 +2,20 @@ import React, { Component } from "react"
 
 import Star from "./Star"
 
-export default class StarRating extends Component {
+const TOTAL_STARS = 5
+
+type Props = {
+  rating: number,
+  onRate: (rating: number) => void,
+  color: string,
+}
+
+export default class StarRating extends Component<Props, {}> {
   render() {
     return (
       <div className="star-rating">
         {Array(5)
-          .fill()
+          .fill(null)
           .map((n, i) => (
             <Star
               key={i}
@@ -16,7 +24,7 @@ export default class StarRating extends Component {
             />
           ))}
         <p style={{ color: this.props.color }}>
-          {this.props.rating} of {this.props.totalStars} stars
+          {this.props.rating} of {TOTAL_STARS} stars
         </p>
       </div>
     )

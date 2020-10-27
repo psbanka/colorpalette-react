@@ -3,8 +3,16 @@ import "./stylesheets/ColorList.css"
 import React, { Component } from "react"
 
 import Color from "./Color"
+import { ColorType } from './App'
 
-export default class ColorList extends Component {
+type Props = {
+  colors: ColorType[],
+  onRate: (id: string, rating: number) => void,
+  onRemove: (id: string) => void,
+  onChange: (id: string, newColor: string) => void
+}
+
+export default class ColorList extends Component<Props, {}> {
   render() {
     return (
       <div className="color-list">

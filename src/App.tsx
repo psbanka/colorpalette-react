@@ -6,8 +6,19 @@ import AddColorForm from "./AddColorForm"
 import ColorList from "./ColorList"
 import { v4 } from "uuid"
 
-class App extends Component {
-  constructor(props) {
+export type ColorType = {
+  id: string,
+  title: string,
+  color: string,
+  rating: number
+}
+
+type State = {
+  colors: ColorType[]
+}
+
+class App extends Component<{}, State> {
+  constructor(props: {}) {
     super(props)
     this.state = {
       colors: [
@@ -20,8 +31,8 @@ class App extends Component {
     this.onChange = this.onChange.bind(this)
   }
 
-  onNewColor(title, color) {
-    this.setState((prevState) => ({
+  onNewColor(title: string, color: string) {
+    this.setState((prevState: State) => ({
       colors: [
         ...prevState.colors,
         {
