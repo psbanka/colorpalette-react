@@ -3,7 +3,6 @@ import "./stylesheets/ColorList.css"
 import React, { Component } from "react"
 
 import Color from "./Color"
-import { ColorType } from './App'
 
 type Props = {
   colors: ColorType[],

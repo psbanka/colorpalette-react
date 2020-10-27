@@ -6,13 +6,6 @@ import AddColorForm from "./AddColorForm"
 import ColorList from "./ColorList"
 import { v4 } from "uuid"
 
-export type ColorType = {
-  id: string,
-  title: string,
-  color: string,
-  rating: number
-}
-
 type State = {
   colors: ColorType[]
 }
