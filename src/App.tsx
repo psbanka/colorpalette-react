@@ -1,33 +1,18 @@
 import "./stylesheets/APP.css"
 
-import React, { Component } from "react"
+import React, { useState } from "react"
 
 import AddColorForm from "./AddColorForm"
 import ColorList from "./ColorList"
 import { v4 } from "uuid"
 
-type State = {
-  colors: ColorType[]
-}
+function App() {
+  const initialColor: ColorType = { id: "foo", title: "hello-kitty", color: "#fff999", rating: 0 }
+  const [colors, setColors]= useState([initialColor])
 
-class App extends Component<{}, State> {
-  constructor(props: {}) {
-    super(props)
-    this.state = {
-      colors: [
-        { id: "foo", title: "hello-kitty", color: "#fff999", rating: 0 },
-      ],
-    }
-    this.onNewColor = this.onNewColor.bind(this)
-    this.rateColor = this.rateColor.bind(this)
-    this.removeColor = this.removeColor.bind(this)
-    this.onChange = this.onChange.bind(this)
-  }
-
-  onNewColor(title: string, color: string) {
-    this.setState((prevState: State) => ({
-      colors: [
-        ...prevState.colors,
+  function onNewColor(title: string, color: string) {
+    setColors([
+        ...colors,
         {
           id: v4(),
           title,
@@ -35,55 +20,47 @@ class App extends Component<{}, State> {
           rating: 0,
         },
       ],
-    }))
+    )
   }
 
-  onChange(id, colorCode) {
-    this.setState((prevState) => ({
-      colors: prevState.colors.map((colorObj) => {
+  function onChange(id: string, colorCode: string) {
+    setColors(colors.map((colorObj) => {
         return colorObj.id !== id
           ? colorObj
           : {
               ...colorObj,
               color: colorCode,
             }
-      }),
-    }))
+      })
+    )
   }
 
-  rateColor(id, rating) {
-    this.setState((prevState) => ({
-      colors: prevState.colors.map((color) =>
+  function rateColor(id: string, rating: number) {
+    setColors(colors.map((color) =>
         color.id !== id
           ? color
           : {
               ...color,
               rating,
             }
-      ),
-    }))
+      ))
   }
 
-  removeColor(id) {
-    this.setState((prevState) => ({
-      colors: prevState.colors.filter((color) => color.id !== id),
-    }))
+  function removeColor(id) {
+    setColors(colors.filter((color) => color.id !== id))
   }
 
-  render() {
-    const { onNewColor, onChange, rateColor, removeColor } = this
-    const { colors } = this.state
-    return (
-      <div className="app">
-        <AddColorForm onNewColor={onNewColor} />
-        <ColorList
-          colors={colors}
-          onChange={onChange}
-          onRate={rateColor}
-          onRemove={removeColor}
-        />
-      </div>
-    )
-  }
+  return (
+    <div className="app">
+      <AddColorForm onNewColor={onNewColor} />
+      <ColorList
+        colors={colors}
+        onChange={onChange}
+        onRate={rateColor}
+        onRemove={removeColor}
+      />
+    </div>
+  )
 }
+
 export default App
